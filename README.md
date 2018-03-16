@@ -1,6 +1,6 @@
 # inventory_management_slack
 
-`virtualenv ipalers_slack`
+`virtualenv ipalers_slackenv`
 
 `source ipalers_slackenv/bin/activate`
 
