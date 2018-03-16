@@ -1,0 +1,16 @@
+[Unit]
+Description=Gunicorn instance to serve ipalers_slack
+After=network.target
+
+[Service]
+User=nginx
+Group=nginx
+WorkingDirectory=/opt/ipalers_slack
+Environment="PATH=/opt/ipalers_slack/ipalers_slackenv/bin"
+Environment="SLACK_TOKEN="
+Environment="SLACK_API_TOKEN="
+Environment="SLACK_RESTRICTED_CHANNEL="
+ExecStart=/opt/ipalers_slack/ipalers_slackenv/bin/gunicorn --workers 3 --bind unix:ipalers_slack.sock -m 007 wsgi
+
+[Install]
+WantedBy=multi-user.target
